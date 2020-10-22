@@ -1,1 +1,1 @@
-Welcome to SAS Viya 4 artifacts!!
+Welcome to the master branch of the SAS Viya project!
