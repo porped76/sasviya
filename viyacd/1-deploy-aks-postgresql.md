@@ -6,11 +6,13 @@ There are three sections in this project:
 - [Deploy SAS Viya on top of the prepared infrastructure](./2-deploy-viya.md)
 - [Deploy Ops4Viya monitoring and logging tools](./3-deploy-ops4viya.md)
 
-## Login to the Cloud Shell from this URL: https://shell.azure.com/ or ssh to *YOUR_SAS_USERNAME*@cldlgn.fyi.sas.com cloudbox and then execute the az login command, following the instructions to login to Azure Cloud with the Azure CLI
+## Login to the Cloud Shell from this URL: https://shell.azure.com/ or ssh to *YOUR_SAS_USERNAME*@cldlgn.fyi.sas.com
+## cloudbox and then execute the az login command, following the instructions to login to Azure Cloud with the Azure CLI
 ## Cloud Shell is automatically authenticated under the initial account signed-in with. 
 
 ```bash
-# Run 'az login' only if you are logged in to YOUR_SAS_USERNAME@cldlgn.fyi.sas.com cloudbox or if you need to use a different account in the Cloud Shell
+# Run 'az login' only if you are logged in to YOUR_SAS_USERNAME@cldlgn.fyi.sas.com cloudbox or if you need to use
+# a different account in the Cloud Shell
 #az login
 ```
 ## Edit the following options according your needs:
@@ -63,7 +65,8 @@ cd ~/clouddrive && tar -zxf payload.tgz && rm -f payload.tgz
 
 ```bash
 ###
-# If you want that this deployment script work at the first run, I encourage you to don't edit any line below this one, unless you know what you are doing ;-)
+# If you want that this deployment script work at the first run, I encourage you to don't edit any line below this one, unless you
+# know what you are doing ;-)
 ###
 
 # Stayin on the Terraform 13.3 version as the required version
