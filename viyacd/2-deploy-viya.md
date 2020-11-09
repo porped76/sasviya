@@ -232,9 +232,11 @@ kustomize build -o site.yaml
 kubectl apply -n ${NS} --selector="sas.com/admin=cluster-wide" -f site.yaml --prune
 # Wait for custom resource deployment to be deployed
 kubectl -n ${NS} wait --for condition=established --timeout=60s -l "sas.com/admin=cluster-wide" crd
-# Apply the "cluster-local" configuration and delete all the other "cluster local" resources that are not in the file (essentially config maps)
+# Apply the "cluster-local" configuration and delete all the other "cluster local" resources that are not in the file
+# essentially config maps)
 kubectl apply -n ${NS} --selector="sas.com/admin=cluster-local" -f site.yaml --prune
-# Apply the configuration that matches label "sas.com/admin=namespace" and delete all the other resources that are not in the file and match label "sas.com/admin=namespace"
+# Apply the configuration that matches label "sas.com/admin=namespace" and delete all the other resources that are not
+# in the file and match label "sas.com/admin=namespace"
 kubectl apply -n ${NS} --selector="sas.com/admin=namespace" -f site.yaml --prune
 
 # Simple way to Monitor the Viya deployment
