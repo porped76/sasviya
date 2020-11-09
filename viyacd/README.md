@@ -1,6 +1,6 @@
 # SAS deployment instructions based on Terraform Infrastructure-as-Code (IaC) tool to deploy SAS Viya 4 (cadence 2020.0.6) on Azure Kubernetes Service (AKS) and Azure Database for PostgreSQL.
 
-## Version 2020.0.5 from 09NOV2020 tunned by pedro.dias@sas.com for the IBERIA team.
+## Version 2020.0.6 from 09NOV2020 tunned by pedro.dias@sas.com for the IBERIA team.
 
 # This project represents an evolution of the content that will be delivered by the Global Enablement Learning training course PSGEL255, that is being prepared by the GEL team and is planned to be rolled out during November.
 
