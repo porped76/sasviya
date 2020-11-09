@@ -55,7 +55,7 @@ tee  ~/clouddrive/project/aks/azure-aks-4-viya-master/gel-vars.tfvars > /dev/nul
 prefix         = "${PERFIX}-k8s"
 location       = "${LOC}"
 ssh_public_key = "~/.ssh/id_rsa.pub"
-kubernetes_version                   = "1.18.8"
+kubernetes_version                   = "1.18.6"
 cluster_endpoint_public_access_cidrs = ["109.232.56.224/27", "149.173.0.0/16", "194.206.69.176/28", "$CLOUDBOXIP/32"]
 create_jump_public_ip = false
 storage_type = "dev"
