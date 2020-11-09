@@ -125,7 +125,7 @@ location       = "${LOC}"
 ssh_public_key = "~/.ssh/id_rsa.pub"
 
 # Define AKS version
-kubernetes_version                   = "1.18.6"
+kubernetes_version                   = "1.18.8"
 
 # Define AKS end point public accesses CIDRS to Marlow, Cary and Azure Cloud Shell
 cluster_endpoint_public_access_cidrs = ["109.232.56.224/27", "149.173.0.0/16", "194.206.69.176/28", "$CLOUDBOXIP/32"]
