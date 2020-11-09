@@ -138,7 +138,8 @@ mkdir -p ~/clouddrive/project/deploy/$NS/site-config/ && cd ~/clouddrive/project
 # Copy the gelldap sitedefault.yaml with the LDAP configurations to the site-default directory
 cp ~/clouddrive/project/gelldap/no_TLS/gelldap-sitedefault.yaml ~/clouddrive/project/deploy/$NS/site-config/
 
-# Create the patches directory with the custom storage class to support RWX access for components that needs it (CAS, backup manager, etc...) and to use an external Azure PG
+# Create the patches directory with the custom storage class to support RWX access for components that needs it
+# (CAS, backup manager, etc...) and to use an external Azure PG
 mkdir -p ~/clouddrive/project/deploy/$NS/site-config/patches
 cat > ~/clouddrive/project/deploy/$NS/site-config/patches/storage-class.yaml <<-EOF
 kind: PersistentStorageClass
@@ -174,7 +175,8 @@ transformers:
   - sas-bases/overlays/external-postgres/external-postgres-transformer.yaml
 
 # Set a custom Storage Class for PersistentVolumeClaims, as it's not currently possible to change the default SC in AKS
-# A new SC is required to support ReadWriteMany access. Note that annotationSelector is how to limit which PV use azurefiles/RWX versus default RWO
+# A new SC is required to support ReadWriteMany access. Note that annotationSelector is how to limit which PV use azurefiles/RWX
+# versus default RWO
 patches:
 - path: site-config/patches/storage-class.yaml
   target:
