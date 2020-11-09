@@ -253,7 +253,8 @@ watch kubectl get pods -o wide -n $NS
 #tmux attach -t $SessName
 
 # Make sure that you are using the Cary Direct VPN (profile 3 usually) and then connect to SAS Viya applications
-# The GEL Open LDAP is deployed as a container and the passwords of the users are "lnxsas". The "sasadm" is an unrestricted administrator
+# The GEL Open LDAP is deployed as a container and the passwords of the users are "lnxsas". The "sasadm" is an unrestricted
+# administrator
 echo "Open SAS Viya Applications at https://${PERFIX}-k8s.${LOC}.cloudapp.azure.com/"
 
 # Optional: Delete the namespace
