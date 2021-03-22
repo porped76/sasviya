@@ -20,3 +20,6 @@ wget https://aka.ms/downloadazcopy-v10-linux
 
 # Install azcopy tool
 tar zxvf downloadazcopy-v10-linux && sudo chown root:root azcopy_linux_amd64_*/azcopy && sudo chmod 755 azcopy_linux_amd64_*/azcopy && sudo mv azcopy_linux_amd64_*/azcopy /usr/bin && sudo rm -rf downloadazcopy-v10-linux && sudo rm -rf azcopy_linux_amd64_*
+
+# Run 'az login'
+az login
