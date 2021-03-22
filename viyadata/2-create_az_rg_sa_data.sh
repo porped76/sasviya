@@ -57,8 +57,8 @@ az storage blob upload \
 --container-name $CONTAINER_NAME \
 --connection-string $AZURE_STORAGE_CONNECTION_STRING
 
-# List the data files from fsdata Blob container
-echo "List files from  fsdata Blob COntainer "
+# List the data files from fsdata blob container
+echo "List files from  fsdata blob Container "
 az storage blob list \
 --container-name $CONTAINER_NAME \
 --connection-string $AZURE_STORAGE_CONNECTION_STRING \
