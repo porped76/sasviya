@@ -47,18 +47,12 @@ STORAGE_KEY=$(az storage account keys list --resource-group $RESOURCE_GROUP --ac
 echo "Storage account name:" $STORAGE_ACCOUNT_NAME
 echo "Blob Storage Container name:" $CONTAINER_NAME
 
-### Upload sample data to storage
-# Uncompress the sample data directory to the local machine
-tar -zxf sample_data.tgz && rm -f sample_data.tgz
-
-# Upload sample data directory to blob storage container
-echo "Uploading sample data directory to blob storage container"
-data_folder=sample_data
-az storage blob directory upload \
---name "$data_folder/" \
---file $data_folder/  \
---container-name $CONTAINER_NAME \
---connection-string $AZURE_STORAGE_CONNECTION_STRING
+# Create directories in the blob storage container
+az storage fs directory create -n csv -f $CONTAINER_NAME && \
+az storage fs directory create -n filename -f $CONTAINER_NAME && \
+az storage fs directory create -n orc -f $CONTAINER_NAME && \
+az storage fs directory create -n orc_n_files -f $CONTAINER_NAME && \
+az storage fs directory create -n parquet -f $CONTAINER_NAME
 
 # List the data files from fsdata blob container
 echo "List files from  fsdata blob Container "
