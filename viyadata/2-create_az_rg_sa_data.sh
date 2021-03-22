@@ -1,7 +1,7 @@
 # Set the shell to use vi-mode:
 set -o vi
 # Exported variables
-# Define the ACCOUNT of the Azure subscription
+# Define the account of the Azure subscription
 ACCOUNT="GELDM"
 # Define the LOC of the Azure location
 LOCATION="germanywestcentral"
@@ -17,14 +17,14 @@ CONTAINER_NAME="fsdata"
 az configure --defaults location=${LOCATION}
 az account set -s ${ACCOUNT}
 
-### Creates a Resource group, Storage Account and Blob Container
+### Creates a resource group, storage account and blob container
 
 # Create a resource group
 echo "Creating a Resource Group at Azure account "
 az group create --name $RESOURCE_GROUP --location $LOCATION
 
 # Create a storage account
-echo "Creating an ADLS2 Storage Account at Azure"
+echo "Creating an adls2 storage account at Azure"
 az storage account create -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP \
 -l $LOCATION \
 --sku Standard_LRS \
@@ -35,7 +35,7 @@ az storage account create -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP \
 # Export the connection string as an environment variable, this is used when creating the Azure file share
 export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP -o tsv)
 
-# Create the Blob Storage
+# Create the blob Storage
 echo "Creating Blob Container at Azure Storage account "
 az storage container create -n $CONTAINER_NAME --connection-string $AZURE_STORAGE_CONNECTION_STRING --fail-on-exist
 
