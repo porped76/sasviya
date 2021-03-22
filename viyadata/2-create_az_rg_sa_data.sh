@@ -47,6 +47,8 @@ echo "Storage account name:" $STORAGE_ACCOUNT_NAME
 echo "Blob Storage Container name:" $CONTAINER_NAME
 
 ### Upload sample data to storage
+# Uncompress the sample data directory to the local machine
+tar -zxf sample_data.tgz && rm -f sample_data.tgz
 
 # Upload sample data directory to blob storage container
 echo "Uploading sample data directory to blob Storgae container"
