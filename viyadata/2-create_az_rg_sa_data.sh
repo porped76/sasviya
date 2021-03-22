@@ -51,7 +51,7 @@ echo "Blob Storage Container name:" $CONTAINER_NAME
 tar -zxf sample_data.tgz && rm -f sample_data.tgz
 
 # Upload sample data directory to blob storage container
-echo "Uploading sample data directory to blob Storgae container"
+echo "Uploading sample data directory to blob storage container"
 data_folder=sample_data
 az storage blob directory upload \
 --name "$data_folder/" \
