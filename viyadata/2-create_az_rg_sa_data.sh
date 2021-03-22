@@ -1,6 +1,5 @@
-# Set the shell to use vi-mode:
-set -o vi
-# Exported variables
+### Exported variables
+
 # Define the account of the Azure subscription
 ACCOUNT="GELDM"
 # Define the LOC of the Azure location
