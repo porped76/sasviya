@@ -4,7 +4,7 @@ set -o vi
 # Define the account of the Azure subscription
 ACCOUNT="GELDM"
 # Define the LOC of the Azure location
-LOCATION="germanywestcentral"
+LOCATION="eastus"
 # Define your SAS userid. To avoid any conflict with the Azure created objects, the usage of your $SASUID is advised
 SASUID=$(az ad signed-in-user show --query mailNickname | sed -e 's/^"//' -e 's/"$//')
 # Define the resource group the Azure created objects
