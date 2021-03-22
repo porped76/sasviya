@@ -2,7 +2,7 @@
 set -o vi
 # Exported variables
 # Define the account of the Azure subscription
-ACCOUNT="SESA"
+ACCOUNT="GELDM"
 # Define the LOC of the Azure location
 LOCATION="germanywestcentral"
 # Define your SAS userid. To avoid any conflict with the Azure created objects, the usage of your $SASUID is advised
