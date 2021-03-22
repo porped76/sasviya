@@ -21,7 +21,7 @@ az account set -s ${ACCOUNT}
 ### Creates a resource group, storage account and blob container
 
 # Create a resource group
-echo "Creating a Resource Group at Azure account "
+echo "Creating a resource group at Azure"
 az group create --name $RESOURCE_GROUP --location $LOCATION
 
 # Create a storage account
