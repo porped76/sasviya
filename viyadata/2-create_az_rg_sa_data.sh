@@ -17,7 +17,7 @@ CONTAINER_NAME="fsdata"
 az configure --defaults location=${LOCATION}
 az account set -s ${ACCOUNT}
 
-### Creates a Resource group, Storage Account and Blob Container
+### Creates a resource group, storage account and blob container
 
 # Create a resource group
 echo "Creating a Resource Group at Azure account "
@@ -35,7 +35,7 @@ az storage account create -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP \
 # Export the connection string as an environment variable, this is used when creating the Azure file share
 export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP -o tsv)
 
-# Create the Blob Storage
+# Create the blob storage
 echo "Creating Blob Container at Azure Storage account "
 az storage container create -n $CONTAINER_NAME --connection-string $AZURE_STORAGE_CONNECTION_STRING --fail-on-exist
 
@@ -48,8 +48,7 @@ echo "Blob Storage Container name:" $CONTAINER_NAME
 
 ### Uploads sample data to storage
 
-# Download the sample data to the local machine
-wget https://github.com/porped76/viya/blob/main/viyacd/sample_data.tgz
+# Extract the sample data file
 tar -zxf sample_data.tgz && rm -f sample_data.tgz
 
 # Upload sample data file to blob storage contianer/fodler
@@ -81,8 +80,8 @@ az storage blob upload \
 --connection-string $AZURE_STORAGE_CONNECTION_STRING 
 done ;
 
-# List the data files from fsdata Blob container
-echo "List files from  fsdata Blob COntainer "
+# List the data files from fsdata blob container
+echo "List files from fsdata blob container "
 az storage blob list \
 --container-name $CONTAINER_NAME \
 --connection-string $AZURE_STORAGE_CONNECTION_STRING \
@@ -98,7 +97,7 @@ do
 done
 ls -lah ./sample_data/big* 
 
-echo "Uploading data files to Blob container using AZCopy tool from local sample_data folder ........................ " 
+echo "Uploading data files to Blob container using azcopy tool from local sample_data folder ........................ " 
 
 end=`date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ'`
 #echo "expiry time :" $end 
