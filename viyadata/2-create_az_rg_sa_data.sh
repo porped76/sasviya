@@ -55,7 +55,7 @@ az storage fs directory create -n orc_n_files -f $CONTAINER_NAME && \
 az storage fs directory create -n parquet -f $CONTAINER_NAME
 
 # List the data files from fsdata blob container
-echo "List files from  fsdata blob Container "
+echo "List files from fsdata blob Container "
 az storage blob list \
 --container-name $CONTAINER_NAME \
 --connection-string $AZURE_STORAGE_CONNECTION_STRING \
