@@ -46,7 +46,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $RESOURCE_GROUP --ac
 echo "Storage account name:" $STORAGE_ACCOUNT_NAME
 echo "Blob Storage Container name:" $CONTAINER_NAME
 
-### Uploads sample data to storage
+### Uploads sample data to Azure storage
 
 # Extract the sample data file
 tar -zxf sample_data.tgz && rm -f sample_data.tgz
@@ -87,10 +87,10 @@ az storage blob list \
 --connection-string $AZURE_STORAGE_CONNECTION_STRING \
 --output table 
 
-# Create Big data file at local sample_data folder  
+# Create big data file at local sample_data folder  
 
 rm ./sample_data/big_data_cars.csv
-echo "Creating a new Big data file at local sample_data folder .....................   ~2.5GB size  ... in ~5 Min...... " 
+echo "Creating a new big data file at local sample_data folder .....................   ~2.5 GB size  ... in ~5 minutes...... " 
 for i in {1..70000}; 
 do 
 	cat ./sample_data/cars_source.csv >> ./sample_data/big_data_cars.csv ;
