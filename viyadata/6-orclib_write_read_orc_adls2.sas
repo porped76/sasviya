@@ -17,7 +17,7 @@ caslib ADLS2 datasource=(
       tenantid=&MYTNTID ,
       applicationId=&MYAPPID
    )
-   path="/sample_data/orc"
+   path="/orc"
    subdirs;
 
 proc casutil incaslib="ADLS2";
