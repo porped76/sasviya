@@ -13,6 +13,8 @@ RESOURCE_GROUP="${SASUID}-rg"
 STORAGE_ACCOUNT_NAME="${SASUID}adls2"
 # Define the container name of the Azure storage account
 CONTAINER_NAME="fsdata"
+# Install az extensions automatically
+az config set extension.use_dynamic_install=yes_without_prompt
 # Configure the Azure default location and set the subscription
 az configure --defaults location=${LOCATION}
 az account set -s ${ACCOUNT}
