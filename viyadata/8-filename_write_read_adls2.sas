@@ -8,7 +8,7 @@
 
 options azuretenantid= &MYTNTID;
 
-filename out adls "sasfile/filename/filename.txt"
+filename out adls "/filename/filename.txt"
 applicationid=&MYAPPID
 accountname=&MYSTRGACC
 filesystem=&MYSTRGFS
