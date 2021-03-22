@@ -1,7 +1,7 @@
 # Set the shell to use vi-mode:
 set -o vi
 # Exported variables
-# Define the ACCOUNT of the Azure subscription
+# Define the account of the Azure subscription
 ACCOUNT="SESA"
 # Define the LOC of the Azure location
 LOCATION="germanywestcentral"
@@ -13,7 +13,7 @@ RESOURCE_GROUP="${SASUID}-rg"
 STORAGE_ACCOUNT_NAME="${SASUID}adls2"
 # Define the container name of the Azure storage account
 CONTAINER_NAME="fsdata"
-# Configure the Azure default location and set the subscription
+# Configure the default location and set the subscription
 az configure --defaults location=${LOCATION}
 az account set -s ${ACCOUNT}
 
