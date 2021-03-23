@@ -13,7 +13,7 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.re
 sudo yum install -y dnf
 
 # Install azure-cli tools with the dnf install command
-sudo dnf install azure-cli
+sudo dnf install -y azure-cli
 
 # Download azcopy tool
 wget https://aka.ms/downloadazcopy-v10-linux
