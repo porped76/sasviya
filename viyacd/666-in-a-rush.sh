@@ -19,7 +19,7 @@ KUBECONFIG=~/.kube/config
 ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export KUBECONFIG' line='export KUBECONFIG=$KUBECONFIG'" --diff
 ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export PATH' line='export PATH=$HOME/bin:$PATH'" --diff
 ansible localhost -m lineinfile -a "dest=~/.bashrc line='source <(kubectl completion bash)'" --diff
-. ~/.bashrc
+source ~/.bashrc
 az configure --defaults location="${LOCATION}"
 az account set -s "${ACCOUNT}"
 echo "[INFO] installing terraform $TFVERS..."
@@ -317,7 +317,7 @@ V4_CFG_CAS_FQDN: cas-${PERFIX}-viya.${LOCATION}.cloudapp.azure.com
 #V4M_ELASTICSEARCH_FQDN: elasticsearch.${PERFIX}-viya.eastus.cloudapp.azure.com
 EOF
 
-. ~/.bashrc && export ANSIBLE_CONFIG=./ansible.cfg && \
+source ~/.bashrc && export ANSIBLE_CONFIG=./ansible.cfg && \
 mkdir ~/clouddrive/project/${NS}/viya4-deployment/customizations
 time ansible-playbook \
   -e BASE_DIR=~/clouddrive/project/${NS}/viya4-deployment/customizations \
@@ -360,7 +360,7 @@ ansible localhost -m lineinfile -a \
     state=present" \
      --diff
 cd ~/clouddrive/project/${NS}/viya4-deployment && \
-export ANSIBLE_CONFIG=./ansible.cfg && time ansible-playbook \
+source ~/.bashrc && export ANSIBLE_CONFIG=./ansible.cfg && time ansible-playbook \
   -e BASE_DIR=~/clouddrive/project/${NS}/viya4-deployment/customizations \
   -e KUBECONFIG=~/.kube/config \
   -e CONFIG=~/clouddrive/project/${NS}/viya4-deployment/ansible-vars-iac.yaml \
