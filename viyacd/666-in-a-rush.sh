@@ -5,8 +5,10 @@ SASUID=$(az ad signed-in-user show --query mailNickname | sed -e 's/^"//' -e 's/
 SASEMAIL=$(az ad signed-in-user show --query userPrincipalName | sed  's|["\ ]||g')
 PERFIX=$SASUID
 ansible localhost -m lineinfile -a "dest=~/.profile regexp='^export PERFIX' line='export PERFIX=$SASUID'" --diff
+ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export PERFIX' line='export PERFIX=$SASUID'" --diff
 NS=sasviya-prod
 ansible localhost -m lineinfile -a "dest=~/.profile regexp='^export NS' line='export NS=$NS'" --diff
+ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export NS' line='export NS=$NS'" --diff
 GRAFANA_PASSWORD=Password123
 KIBANA_PASSWORD=Password123
 BASTIONIP=$(dig +short myip.opendns.com @resolver1.opendns.com)
@@ -17,8 +19,11 @@ YQVER=jq-1.6
 YQBIN=jq-linux64
 KUBECONFIG=~/.kube/config
 ansible localhost -m lineinfile -a "dest=~/.profile regexp='^export KUBECONFIG' line='export KUBECONFIG=$KUBECONFIG'" --diff
+ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export KUBECONFIG' line='export KUBECONFIG=$KUBECONFIG'" --diff
 ansible localhost -m lineinfile -a "dest=~/.profile regexp='^export PATH' line='export PATH=$HOME/bin:$PATH'" --diff
+ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export PATH' line='export PATH=$HOME/bin:$PATH'" --diff
 ansible localhost -m lineinfile -a "dest=~/.profile line='source <(kubectl completion bash)'" --diff
+ansible localhost -m lineinfile -a "dest=~/.bashrc line='source <(kubectl completion bash)'" --diff
 source ~/.profile
 az configure --defaults location="${LOCATION}"
 az account set -s "${ACCOUNT}"
