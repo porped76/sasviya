@@ -4,9 +4,9 @@ LOCATION=eastus
 SASUID=$(az ad signed-in-user show --query mailNickname | sed -e 's/^"//' -e 's/"$//')
 SASEMAIL=$(az ad signed-in-user show --query userPrincipalName | sed  's|["\ ]||g')
 PERFIX=$SASUID
-ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export PERFIX' line='export PERFIX=$SASUID'" --diff
+ansible localhost -m lineinfile -a "dest=~/.profile regexp='^export PERFIX' line='export PERFIX=$SASUID'" --diff
 NS=sasviya-prod
-ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export NS' line='export NS=$NS'" --diff
+ansible localhost -m lineinfile -a "dest=~/.profile regexp='^export NS' line='export NS=$NS'" --diff
 GRAFANA_PASSWORD=Password123
 KIBANA_PASSWORD=Password123
 BASTIONIP=$(dig +short myip.opendns.com @resolver1.opendns.com)
@@ -16,10 +16,10 @@ KUSTOMIZEVER=3.7.0
 YQVER=jq-1.6
 YQBIN=jq-linux64
 KUBECONFIG=~/.kube/config
-ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export KUBECONFIG' line='export KUBECONFIG=$KUBECONFIG'" --diff
-ansible localhost -m lineinfile -a "dest=~/.bashrc regexp='^export PATH' line='export PATH=$HOME/bin:$PATH'" --diff
-ansible localhost -m lineinfile -a "dest=~/.bashrc line='source <(kubectl completion bash)'" --diff
-source ~/.bashrc
+ansible localhost -m lineinfile -a "dest=~/.profile regexp='^export KUBECONFIG' line='export KUBECONFIG=$KUBECONFIG'" --diff
+ansible localhost -m lineinfile -a "dest=~/.profile regexp='^export PATH' line='export PATH=$HOME/bin:$PATH'" --diff
+ansible localhost -m lineinfile -a "dest=~/.profile line='source <(kubectl completion bash)'" --diff
+source ~/.profile
 az configure --defaults location="${LOCATION}"
 az account set -s "${ACCOUNT}"
 echo "[INFO] installing terraform $TFVERS..."
@@ -45,7 +45,7 @@ else
     echo "export TF_VAR_client_id=${TF_VAR_client_id}" >> $TFCREDFILE
     echo "export TF_VAR_client_secret=${TF_VAR_client_secret}" >> $TFCREDFILE
     chmod u+x $TFCREDFILE && cd ~/clouddrive/project/${NS} && ./TF_CLIENT_CREDS
-    ansible localhost -m lineinfile -a "dest=~/.bashrc line='source ~/clouddrive/project/${NS}/TF_CLIENT_CREDS'" --diff
+    ansible localhost -m lineinfile -a "dest=~/.profile line='source ~/clouddrive/project/${NS}/TF_CLIENT_CREDS'" --diff
 fi
 ansible localhost -m file -a "path=~/.ssh mode=0700 state=directory"
 ansible localhost -m openssh_keypair -a "path=~/.ssh/id_rsa type=rsa size=2048" --diff
@@ -317,7 +317,7 @@ V4_CFG_CAS_FQDN: cas-${PERFIX}-viya.${LOCATION}.cloudapp.azure.com
 #V4M_ELASTICSEARCH_FQDN: elasticsearch.${PERFIX}-viya.eastus.cloudapp.azure.com
 EOF
 
-source ~/.bashrc && export ANSIBLE_CONFIG=./ansible.cfg && \
+source ~/.profile && export ANSIBLE_CONFIG=./ansible.cfg && \
 mkdir ~/clouddrive/project/${NS}/viya4-deployment/customizations
 time ansible-playbook \
   -e BASE_DIR=~/clouddrive/project/${NS}/viya4-deployment/customizations \
@@ -360,7 +360,7 @@ ansible localhost -m lineinfile -a \
     state=present" \
      --diff
 cd ~/clouddrive/project/${NS}/viya4-deployment && \
-source ~/.bashrc && export ANSIBLE_CONFIG=./ansible.cfg && time ansible-playbook \
+source ~/.profile && export ANSIBLE_CONFIG=./ansible.cfg && time ansible-playbook \
   -e BASE_DIR=~/clouddrive/project/${NS}/viya4-deployment/customizations \
   -e KUBECONFIG=~/.kube/config \
   -e CONFIG=~/clouddrive/project/${NS}/viya4-deployment/ansible-vars-iac.yaml \
