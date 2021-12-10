@@ -1,8 +1,8 @@
 /* Store token */
-%let GCSTOKEN=;
+%let GCSTOKEN=ya29.a0ARrdaM8lhH8yteRhw-7HWbifvX5gAFPl3InXaQNjMvdkc3_n6vcwOxCTgmGNbNT6mxbmhLVQmTm5FLlMXZVGXjxtN_PCdni6Ur-PN_Wn3dO8hXk2oSuGI9WKP0LTokJVLBf99UJPBwdqnbcdNRpOtdDH5sZr;
 
 /* Fileref */
-filename incsv "$HOME/cars.csv";
+filename incsv "$HOME/source-data/cars.csv";
 
 /* Upload the file using the REST API */
 proc http
