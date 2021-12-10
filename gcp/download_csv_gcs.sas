@@ -12,7 +12,7 @@ proc http
     debug level=1 ;
 run ;
 
-proc import datafile="$HOME/cars.csv"
+proc import datafile="$HOME/source-data/cars.csv"
         out=cars
         dbms=csv
         replace;
