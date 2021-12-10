@@ -1,5 +1,5 @@
 /* Store token */
-%let GCSTOKEN=ya29.a0ARrdaM-UEW1RjNTK5vKDw-XWcDLm8m3UVPIk4gk3EA-0YkH9YU3WdmL8nM5vPLRn5KqoqBbAQYuRLgvPVEnhZo1BH-dJ5-_RGoTz9HWyILKWD6t_WQ27smi4gkS4yq-S7hExJ6RkPI8tJ6J3DrwYAG97pCYJ;
+%let GCSTOKEN=;
 
 /* Fileref */
 filename incsv "$HOME/cars.csv";
