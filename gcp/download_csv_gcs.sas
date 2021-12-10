@@ -1,5 +1,5 @@
 /* Store token */
-%let GCSTOKEN=;
+%let GCSTOKEN= ;
 
 /* Fileref */
 filename outcsv "$HOME/cars.csv";
